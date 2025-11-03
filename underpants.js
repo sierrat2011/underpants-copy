@@ -86,8 +86,22 @@ _.typeOf = function(value) {
 */
 
 _.first = function(array, number) {
-
+    if (Array.isArray(array) !== true) {
+        return []
+    } else if (number < 0) {
+        return []
+    }
+    if (number > array.length) {
+        return array
+    }
+    if (typeof number !== 'number') {
+        return array[0]
+    } else {
+        return array.slice(0, number)
+    }
 }
+
+
 
 /** _.last
 * Arguments:
@@ -107,6 +121,21 @@ _.first = function(array, number) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number) {
+    if (Array.isArray(array) !== true) {
+        return []
+    } else if (number < 0) {
+        return []
+    }
+    if (number > array.length) {
+        return array
+    }
+    if (typeof number !== 'number') {
+        return array[array.length - 1]
+    } else {
+        return array.splice(-number)
+    }
+}
 
 /** _.indexOf
 * Arguments:
