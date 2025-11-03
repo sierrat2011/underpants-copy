@@ -45,6 +45,27 @@ _.identity = function(value) {
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function(value) {
+    if (typeof value === 'string') {
+        return "string"
+      } else if (typeof value === 'undefined') {
+        return "undefined"
+      } else if (typeof value === 'number') {
+        return "number"
+      } else if (typeof value === 'boolean') {
+        return "boolean"
+      } else if (typeof value === 'function') {
+        return "function"
+      } else if (Array.isArray(value) === true) {
+        return "array"
+      } else if (value === null) {      
+        return "null" 
+      } else if (value instanceof Date) {
+        return "date"
+      } else if (typeof value === "object") {
+        return "object"
+      }
+    }
 
 /** _.first
 * Arguments:
@@ -64,6 +85,9 @@ _.identity = function(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(array, number) {
+
+}
 
 /** _.last
 * Arguments:
@@ -161,6 +185,15 @@ _.identity = function(value) {
 *   use _.each in your implementation
 */
 
+_.filter = function (array, func) {
+    const output = []
+    for (let i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) === true) {
+            output.push(array[i])
+        }
+    }
+    return output
+}
 
 /** _.reject
 * Arguments:
