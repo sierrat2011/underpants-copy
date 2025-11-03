@@ -101,8 +101,6 @@ _.first = function(array, number) {
     }
 }
 
-
-
 /** _.last
 * Arguments:
 *   1) An array
@@ -153,6 +151,14 @@ _.last = function(array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value) {
+for (let i = 0; i < array.length; i++) {
+  if (array[i] === value) {
+    return i
+  }
+}
+return -1
+}
 
 /** _.contains
 * Arguments:
@@ -169,6 +175,14 @@ _.last = function(array, number) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+      return true
+    }
+  }
+  return false
+}
 
 /** _.each
 * Arguments:
@@ -197,6 +211,9 @@ _.last = function(array, number) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array) {
+  var holder =[]
+}
 
 /** _.filter
 * Arguments:
