@@ -219,13 +219,10 @@ _.contains = function(array, value) {
 _.unique = function(array) {
 var holder = []
 for (var i = 0; i < array.length; i++) {
-if (_.indexOf(array) === array[i]) {
-  array.splice(array[i], 1)
-} else {
+if (_.indexOf(holder, array[i]) === -1) {
   holder.push(array[i])
 }
-}
-return holder
+}return holder
 }
 
 /** _.filter
