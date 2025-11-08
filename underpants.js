@@ -211,8 +211,21 @@ _.contains = function(array, value) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+// I - an array
+// O - new array with duplicates removes
+// C - use indexOf()
+
+
 _.unique = function(array) {
-  var holder =[]
+var holder = []
+for (var i = 0; i < array.length; i++) {
+if (_.indexOf(array) === array[i]) {
+  array.splice(array[i], 1)
+} else {
+  holder.push(array[i])
+}
+}
+return holder
 }
 
 /** _.filter
