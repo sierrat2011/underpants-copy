@@ -292,6 +292,18 @@ _.reject = function (array, func) {
 }
 */
 
+_.partition = function(array, func) {
+  var output = [[], []]; 
+  for (let i = 0; i < array.length; i++) {
+    if (func(array[i], i, array)) {
+      output[0].push(array[i]);
+    } else {
+      output[1].push(array[i]);
+    }
+  }
+
+  return output;
+};
 
 /** _.map
 * Arguments:
