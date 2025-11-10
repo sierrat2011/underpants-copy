@@ -200,6 +200,8 @@ _.contains = function(array, value) {
 *      -> should log "a" "b" "c" to the console
 */
 
+// _.each = function () {};
+
 
 /** _.unique
 * Arguments:
@@ -319,8 +321,22 @@ _.partition = function(array, func) {
 *   3) return the new array
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
+    _.map({ a: 1, b: 2}, function(e){e*2}) -> [2, 4]
 */
 
+_.map = function(collection, func) {
+  const = []
+  if (Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {
+
+    }
+  } else {
+    for (let key in collection) {
+      
+    }
+
+  }
+}
 
 /** _.pluck
 * Arguments:
@@ -368,7 +384,7 @@ _.partition = function(array, func) {
 *        current value, current key, <collection>
 *   2) If the return value of calling <function> is true for at least one element, return true
 *   3) If it is false for all elements, return false
-*   4) If <function> is not provided return true if at least one element is truthy, otherwise return false
+*   4) If <function>  is not provided return true if at least one element is truthy, otherwise return false
 * Edge Cases:
 *   1) what if <function> doesn't return a boolean
 *   2) What if <function> is not given?
