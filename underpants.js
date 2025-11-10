@@ -200,7 +200,19 @@ _.contains = function(array, value) {
 *      -> should log "a" "b" "c" to the console
 */
 
-// _.each = function () {};
+_.each = function(collection, func) {
+  if (Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {       
+        func(collection[i], i, collection)                
+    }                                                   
+  } else {
+    for (let key in collection) {
+      func(collection[key], key, collection)
+    }
+
+  }
+  return
+}
 
 
 /** _.unique
@@ -352,7 +364,7 @@ _.map = function(collection, func) {
 
 _.pluck = function(array, prop) {
   return _.map(array, function(e) {return e[prop]})
-} // WHY AMI I GETTING UNDEFINEDDDDD?
+} // WHY AM I I GETTING UNDEFINEDDDDD?
 
 /** _.every
 * Arguments:
@@ -375,6 +387,13 @@ _.pluck = function(array, prop) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, func) {
+  if (typeof func === 'function') {
+    if (_.map(collection, function(){return}))
+    {
+    return true
+  }
+}}
 
 /** _.some
 * Arguments:
@@ -397,6 +416,13 @@ _.pluck = function(array, prop) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func) {
+  if (typeof func === 'function') {
+    if (_.map(collection, function(){return}))
+    {
+    return false
+  }
+}}
 
 /** _.reduce
 * Arguments:
