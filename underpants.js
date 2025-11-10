@@ -388,12 +388,36 @@ _.pluck = function(array, prop) {
 */
 
 _.every = function(collection, func) {
-  if (typeof func === 'function') {
-    if (_.map(collection, function(){return}))
-    {
-    return true
+  if (arguments.length !== 2) {
+    for (let i = 0; i < collection.length; i++) {       
+        if (collection[i] === false) {
+          return false
+        } else {
+          return true
+        }               
+    }
+  } else {
+  const output = []
+  if (Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {       
+        if (collection[i] === false) {
+          return false
+        } else {
+          return true
+        }               
+    }                                                   
+  } else {
+    for (let key in collection) {
+      if (collection[key] === false) {
+        return false
+      } else {
+        return true
+      }
+    }
+
   }
-}}
+  return output
+  }}
 
 /** _.some
 * Arguments:
