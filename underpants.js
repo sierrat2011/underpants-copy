@@ -325,17 +325,18 @@ _.partition = function(array, func) {
 */
 
 _.map = function(collection, func) {
-  const = []
+  const output = []
   if (Array.isArray(collection)) {
-    for (let i = 0; i < collection.length; i++) {
-
-    }
+    for (let i = 0; i < collection.length; i++) {       // i think this is done
+        output.push(func(collection[i]))               // i'm getting an error about the .lengtj
+    }                                                     // this is correct in codepen
   } else {
     for (let key in collection) {
-      
+      output.push(func(collection[key]))
     }
 
   }
+  return output
 }
 
 /** _.pluck
