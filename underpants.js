@@ -327,12 +327,12 @@ _.partition = function(array, func) {
 _.map = function(collection, func) {
   const output = []
   if (Array.isArray(collection)) {
-    for (let i = 0; i < collection.length; i++) {       // i think this is done
-        output.push(func(collection[i]))               // i'm getting an error about the .lengtj
-    }                                                     // this is correct in codepen
+    for (let i = 0; i < collection.length; i++) {       
+        output.push(func(collection[i], i, collection))                
+    }                                                   
   } else {
     for (let key in collection) {
-      output.push(func(collection[key]))
+      output.push(func(collection[key], key, collection))
     }
 
   }
@@ -350,6 +350,9 @@ _.map = function(collection, func) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function(array, prop) {
+  return _.map(array, function(e) {return e[prop]})
+} // WHY AMI I GETTING UNDEFINEDDDDD?
 
 /** _.every
 * Arguments:
