@@ -425,10 +425,10 @@ _.every = function(collection, func) {
       for (let i = 0; i < collection.length; i++) {       
         // should return false when not all iterations are true
         // i thought this part was taking care of that
-        if (!collection[i]) {
-          return true
-        } else {
+        if (!func(collection[i])) {
           return false
+        // } else {
+        //   return true
         }               
     }
   } else {
@@ -451,7 +451,8 @@ _.every = function(collection, func) {
     }
       }
       
-  }}
+  } return true
+}
 
 
 /** _.some
@@ -476,12 +477,38 @@ _.every = function(collection, func) {
 */
 
 _.some = function(collection, func) {
+  if (Array.isArray(collection)) {
   if (typeof func === 'function') {
-    if (_.map(collection, function(){return}))
-    {
-    return false
+      for (let i = 0; i < collection.length; i++) {       
+        
+        if (func(collection[i])) {
+          return true
+        // } else {
+        //   return true
+        }               
+    }
+  } else {
+      for (let i = 0; i < collection.length; i++) {       
+        if (!collection[i]) {
+          return false
+        } else {
+          return true
+        }               
+    }
   }
-}}
+} else {
+    for (let key in collection) {
+      if (typeof func === 'function') {
+        if (!collection[key]) {
+        return false
+      } else {
+        return true
+      }
+    }
+      }
+      
+  } return false
+}
 
 /** _.reduce
 * Arguments:
