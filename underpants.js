@@ -560,8 +560,8 @@ return output
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(obj1, obj2) {
-  Object.assign(obj1, obj2)
+_.extend = function(obj1, ...obj2) {
+  Object.assign(obj1, ...obj2)
   return obj1
 }
 
