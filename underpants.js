@@ -364,7 +364,7 @@ _.map = function(collection, func) {
 
 _.pluck = function(array, prop) {
   return _.map(array, function(e) {return e[prop]})
-} // WHY AM I I GETTING UNDEFINEDDDDD?
+} 
 
 /** _.every
 * Arguments:
@@ -387,37 +387,72 @@ _.pluck = function(array, prop) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+// _.every = function(collection, func) {
+//   if (arguments.length !== 2) {
+//     for (let i = 0; i < collection.length; i++) {       
+//         if (collection[i] === false) {
+//           return false
+//         } else {
+//           return true
+//         }               
+//     }
+//   } else {
+//   const output = []
+//   if (Array.isArray(collection)) {
+//     for (let i = 0; i < collection.length; i++) {       
+//         if (collection[i] === false) {
+//           return false
+//         } else {
+//           return true
+//         }               
+//     }                                               
+//   } else {
+//     for (let key in collection) {
+//       if (collection[key] === false) {
+//         return false
+//       } else {
+//         return true
+//       }
+//     }
+
+//   }
+//   return output
+//   }}
+
 _.every = function(collection, func) {
-  if (arguments.length !== 2) {
-    for (let i = 0; i < collection.length; i++) {       
-        if (collection[i] === false) {
+  if (Array.isArray(collection)) {
+  if (typeof func === 'function') {
+      for (let i = 0; i < collection.length; i++) {       
+        // should return false when not all iterations are true
+        // i thought this part was taking care of that
+        if (!collection[i]) {
+          return true
+        } else {
+          return false
+        }               
+    }
+  } else {
+      for (let i = 0; i < collection.length; i++) {       
+        if (!collection[i]) {
           return false
         } else {
           return true
         }               
     }
-  } else {
-  const output = []
-  if (Array.isArray(collection)) {
-    for (let i = 0; i < collection.length; i++) {       
-        if (collection[i] === false) {
-          return false
-        } else {
-          return true
-        }               
-    }                                                   
-  } else {
+  }
+} else {
     for (let key in collection) {
-      if (collection[key] === false) {
+      if (typeof func === 'function') {
+        if (!collection[key]) {
         return false
       } else {
         return true
       }
     }
-
-  }
-  return output
+      }
+      
   }}
+
 
 /** _.some
 * Arguments:
